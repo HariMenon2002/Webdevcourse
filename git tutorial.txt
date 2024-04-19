@@ -1,0 +1,26 @@
+
+For first time
+
+git config --global user.name "HariMenon2002"
+git config --global user.email "ultronhari7@gmail.com"
+
+git init
+git status
+git add .           //you can also add seperately eg. git add index.html
+
+git status
+git commit -m "type a message"
+git status
+
+git remote -v  //just to check if already connected
+git remote add origin <..link..>
+
+
+git remote -v
+
+git push origin master
+
+//For clone
+
+git clone <url..>
+
