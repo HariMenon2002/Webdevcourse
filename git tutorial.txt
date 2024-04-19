@@ -22,7 +22,7 @@ git push origin master
 
 //For cloning one of my own repos
 
-git clone <url..>                  //this makes sure that everything is now set to that repository thus we dont have to do git add . and all that    //then do cd to that location
+git clone <url..>                  //this makes sure that everything is now set to that repository thus we dont have to do git init,git remote and all that    //then do cd to that location
  //after making changes
 git add .
 git status
