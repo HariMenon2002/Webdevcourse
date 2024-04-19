@@ -31,3 +31,30 @@ git commit -m "message"
 git remote -v                      //just checking
 
 git push                       	   // no need of origin master
+
+
+//For creating branches
+
+git checkout -b <branch name>     //to create a branch and move to it
+git branch                        //to view all my branches
+
+git checkout master           // to go back to master branch
+git checkout <branch name>
+
+//suppose i add a file now , this will not be visible in my master branch though
+
+git diff <branch name>     //go to master and do this ,this will give the difference between the two file
+
+//now if you want you can directly do get merge <branch name> here to merge with master but we usually do this with a pull request
+
+git checkout <branch name>
+
+git push -u origin <branch name>
+
+//now a pull request appears in github
+//go and create the pull request
+
+//as this is my own repository , i can merge it as well
+
+//to delete the branch, go to master branch and do 
+git branch -d <branch name>
