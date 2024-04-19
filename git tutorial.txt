@@ -20,7 +20,14 @@ git remote -v
 
 git push origin master
 
-//For clone
+//For cloning one of my own repos
 
-git clone <url..>
+git clone <url..>                  //this makes sure that everything is now set to that repository thus we dont have to do git add . and all that    //then do cd to that location
+ //after making changes
+git add .
+git status
 
+git commit -m "message"
+git remote -v                      //just checking
+
+git push                       	   // no need of origin master
