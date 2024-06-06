@@ -1,0 +1,60 @@
+
+For first time
+
+git config --global user.name "HariMenon2002"
+git config --global user.email "ultronhari7@gmail.com"
+
+git init
+git status
+git add .           //you can also add seperately eg. git add index.html
+
+git status
+git commit -m "type a message"
+git status
+
+git remote -v  //just to check if already connected
+git remote add origin <..link..>
+
+
+git remote -v
+
+git push origin master
+
+//For cloning one of my own repos
+
+git clone <url..>                  //this makes sure that everything is now set to that repository thus we dont have to do git init,git remote and all that    //then do cd to that location
+ //after making changes
+git add .
+git status
+
+git commit -m "message"
+git remote -v                      //just checking
+
+git push                       	   // no need of origin master
+
+
+//For creating branches
+
+git checkout -b <branch name>     //to create a branch and move to it
+git branch                        //to view all my branches
+
+git checkout master           // to go back to master branch
+git checkout <branch name>
+
+//suppose i add a file now , this will not be visible in my master branch though
+
+git diff <branch name>     //go to master and do this ,this will give the difference between the two file
+
+//now if you want you can directly do get merge <branch name> here to merge with master but we usually do this with a pull request
+
+git checkout <branch name>
+
+git push -u origin <branch name>
+
+//now a pull request appears in github
+//go and create the pull request
+
+//as this is my own repository , i can merge it as well
+
+//to delete the branch, go to master branch and do 
+git branch -d <branch name>

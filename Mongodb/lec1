@@ -1,0 +1,19 @@
+/*
+For Mongodb:
+
+1.Go to atlas mongodb and create database, then go to network access and put ip as 0.0.0.0/0 so that anyone can access it
+2.In mongodb compass in my system paste the link from connect section in the cloud
+
+
+i had created cluster 0 whose password=
+l0NVOiTPTWAncRHw
+
+connect link:
+mongodb+srv://b20ec33:l0NVOiTPTWAncRHw@cluster0.itjmjiy.mongodb.net/
+
+For postgress:
+1.Go to neondb, and create project .You will get a link
+postgresql://test_owner:************@ep-orange-sunset-a58i2jvk.us-east-2.aws.neon.tech/test?sslmode=require
+*/
+
+
