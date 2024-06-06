@@ -8,7 +8,7 @@ const b=[10,20];
 console.log(b.length+' this is the length');
 
 for(let i=0;i<b.length;i++){
-    console.log(`$i`);
+    console.log(`${i}`);
 }
 
 const users={
