@@ -47,7 +47,7 @@ app.post("/signin",(req,res)=>{
     
       var token = jwt.sign({ username: username }, jwtPassword);  //creates a token
       return res.json({
-        token,
+        token,                  //user will store it in the local storage 
       });
 });
 
@@ -57,11 +57,17 @@ app.get("/users", function (req, res) {
       const decoded = jwt.verify(token, jwtPassword);
       const username = decoded.username;
       // return a list of users other than this username from the database
+
+      res.json({
+        users:ALL_USERS
+      })
     } catch (err) {
       return res.status(403).json({
         msg: "Invalid token",
       });
     }
   });
+
+  //when you do this get request via thuderclient, you should also include an Authorization header with the token that you receive from the post request(enter it without the "" )
   
   app.listen(3000);
