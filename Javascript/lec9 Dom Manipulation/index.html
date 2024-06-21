@@ -1,0 +1,49 @@
+<html>
+
+    <style>
+        #container1{
+            background-color: red;
+            font-size: 100;
+            padding:20;
+            margin:100;
+            color:green
+        }
+    </style>
+
+    <script>
+        function populateDiv(){
+           // alert("hi");
+           //const element=document.getElementById("finalSum")
+           //console.log(element)
+           //element.innerHTML="Hello world"
+
+
+           const a=document.getElementById("firstNumber").value;
+           const b=document.getElementById("secondNumber").value;
+           const element=document.getElementById("finalSum")
+           element.innerHTML=parseInt(a)+parseInt(b);  //to convert it to int
+
+        }
+    </script>
+    <body>
+        <!-- <input id="firstNumber" type="text" placeholder="First number"> </input><br></br>
+        <input id="secondNumber" type="text" placeholder="First number"> </input><br></br>
+        <button onclick="populateDiv()">Calculate sum</button> <br></br> -->
+        
+        <!-- you can also do something like -->
+        
+        <input class="inputs" onInput="populateDiv()"  id="firstNumber" type="text" placeholder="First number"> </input><br></br>
+        <input class="inputs" onInput="populateDiv()"  id="secondNumber" type="text" placeholder="Second number"> </input><br></br>
+        <div id="finalSum"></div>
+        
+        
+        <div id="container1">
+            hi there
+        </div>
+    </body>
+</html>
+
+<!-- dynamic means changing elements on website once  website is loaded -->
+
+<!-- go to console in the browser and type document.getElementsByClassName("inputs") -->
+<!-- go to console in the browser and type document.getElementsByClassName("inputs")[0] -->
