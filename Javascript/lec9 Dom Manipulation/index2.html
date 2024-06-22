@@ -1,0 +1,78 @@
+<!-- Now lets assume you dont have access to calculation logic on the frontend ie.someone has exposed it on a backend server and you need to hit the backend server and get back the value -->
+
+<!-- https://sum-server.100xdevs.com/sum?a=1&b=2   ,this is a site which will do addition for you in the backend -->
+
+<html>
+
+
+
+    <script>
+
+        let timeout;
+        function debouncePopulateDiv(){  //it will call populateDiv if it(debouncePopulateDiv()) //is not called even after a specific interval ie.it will delay call to populateDiv until itself has not been called in a specific time interval
+            
+            clearTimeout(timeout);// ie destroys the clock ie now i can delete multiple clocks created by different calls to debouncePopulateDiv();
+            timeout=setTimeout(function(){
+                populateDiv();
+            },1000);           //here i am putting time interval of 1s
+
+        }
+        function populateDiv(){
+          
+           const a=document.getElementById("firstNumber").value;
+           const b=document.getElementById("secondNumber").value;
+           fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b).then(function(response){
+                  console.log(response);  //we see in the console that response is in form of simple text and so we have to extract our answer from it
+
+                  response.text().then(function(ans){  //response.text() is also a promise ,this is how the fetch function is written
+                    console.log(ans);
+                    document.getElementById("finalSum").innerHTML=ans;
+                  })
+           })
+
+           //fetch gives a promise     
+           //you can also use axios instead of fetch      
+        }
+
+        //you can also do
+        async function populateDiv2(){
+
+            const a=document.getElementById("firstNumber").value;
+            const b=document.getElementById("secondNumber").value;
+            const response= await fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b);
+            const ans= await response.text();
+            document.getElementById("finalSum").innerHTML=ans;
+
+        }
+
+
+    </script>
+    <body>
+        
+        
+        <input   id="firstNumber" type="text" placeholder="First number"> </input><br></br>
+        <input   id="secondNumber" type="text" placeholder="Second number"> </input><br></br>
+
+        <button onclick="populateDiv()">Calculate sum</button>
+
+        <!-- if i want to calculate as soon as user enters the input , i can do -->
+
+        <!-- <input   onclick="populateDiv()"   id="firstNumber" type="text" placeholder="First number"> </input><br></br>
+        <input  onclick="populateDiv()" id="secondNumber" type="text" placeholder="Second number"> </input><br></br> -->
+
+        <!-- but this creates a lot of requests as if user enters even one digit, a request will be sent -->
+
+        <!-- Thus we will use the concept of debouncing, ie it will sent a request only after a certain time user stops typing. It is implemented in debouncePopulateDiv()  -->
+
+
+         <input   onclick="debouncePopulateDiv()"   id="firstNumber" type="text" placeholder="First number"> </input><br></br>
+        <input  onclick="debouncePopulateDiv()" id="secondNumber" type="text" placeholder="Second number"> </input><br></br>
+
+
+        <div id="finalSum"></div>
+        
+        
+        
+    </body>
+</html>
+
