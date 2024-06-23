@@ -1,0 +1,38 @@
+<html>
+    <script>
+        function addTodo(){
+            const title=document.getElementById("title").value;
+            const description=document.getElementById("description").value;
+            console.log(title);
+            console.log(description);
+
+            //as it is a todo app, you have to append the entries
+
+            // const originalHtml=document.getElementById("container").innerHTML
+            // document.getElementById("container").innerHTML= originalHtml+`
+            // <div>
+            //     <div>title is ${title}</div>
+            //     <div>description is ${description}</div>
+            //     <button>Mark as done</button>
+            // </div>
+            // `
+            // this same thing can be done in a better way(look at index5.html)
+            const childDiv=document.createElement("div") //creates a <div></div>
+            outerDiv.innerHTML=title;
+            document.getElementById("container").appendChild(outerDiv);
+            //rest of the todo application is in index5.html
+
+        }
+    </script>
+    <div>
+        <input id="title" type="text" placeholder="title"></input><br></br>
+        <input id="description" type="text" placeholder="description"></input><br></br>
+        <button onclick="addTodo()">Add todo</button>
+
+        <div id="container">
+           
+        </div>
+
+
+    </div>
+</html>

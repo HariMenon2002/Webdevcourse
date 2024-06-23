@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<!-- https://sum-server.100xdevs.com/todos  is a site in which the todo list varies each time we load -->
+
+<!-- This list can be give to updateDomAccToState() function which will render it. -->
+
+
+<body>
+  <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
+  <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
+   <!-- no add todo function here , we are assuming this is just a read only ui and server is returning the states -->
+
+
+
+  <div id="container">
+
+  </div>
+
+  <!-- as i am calling updateDomAccToState() in script itself, the main body should come before the script -->
+  <script>
+    
+    function createChild(title, description, id) {
+      const child = document.createElement("div");
+      const firstGrandParent = document.createElement("div");
+      firstGrandParent.innerHTML = title;
+      const secondGrandParent = document.createElement("div");
+      secondGrandParent.innerHTML = description;
+      const thirdGrandParent = document.createElement("button");
+      thirdGrandParent.innerHTML = "Mark as done";
+      thirdGrandParent.setAttribute("onclick", `markAsDone(${id})`);
+      child.appendChild(firstGrandParent);
+      child.appendChild(secondGrandParent);
+      child.appendChild(thirdGrandParent)
+      child.setAttribute("id", id);
+      return child;
+    }
+    
+
+    //state will always be an array
+    //every element of state would have a title,description and id
+    function updateDomAccToState(state){
+        const parent=document.getElementById("container");
+        parent.innerHTML="";
+       
+        //for every state variable, i will use the createChild function and create a child and append it    
+        for(let i=0;i<state.length;i++){
+            const child=createChild(state[i].title,state[i].description,state[i].id);  //assuming state is also in this format ie has title,description etc.
+            
+            parent.appendChild(child);
+        }
+
+    }
+
+    window.setInterval(async function(){
+        const res=await fetch("https://sum-server.100xdevs.com/todos");
+        console.log(typeof(res))
+        const json=await res.json();
+        updateDomAccToState(json.todos);
+    },5000)
+
+    //the above one is a good approach, but the problem is that it is updated continuously even if server sends the same thing.
+    //thus the best solution is to calculate the diff between the objects and change it only if there is a difference ie remember the old state and calculate the diff with the new state
+    //instead of completely removing the dom , we need to update it
+    //this remembering of the old state is called Virtual DOM
+    //react has various algorithms to calculate this difference
+  </script>
+</body>
+
+</html>
+
+
+
