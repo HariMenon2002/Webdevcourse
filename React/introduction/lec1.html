@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <div id="buttonParent">
+
+        </div>
+        <script>
+
+            let state={
+                count:0
+            }
+
+            function onButtonPress(){
+                state.count++;
+               // buttonComponentReRender();
+            }
+
+            // function buttonComponentReRender(){
+            //     document.getElementById("buttonParent").innerHTML="";
+            //     const component=buttonComponent(state.count);
+            //     document.getElementById("buttonParent").appendChild(component);
+            // }
+
+            function buttonComponent(count){
+                const button=document.createElement("button");
+                button.innerHTML=`counter ${count}`;
+                button.setAttribute('onclick','onButtonPress()');
+            }
+
+            //buttonComponentReRender();  //the first render is always done by us
+
+        </script>
+
+    </body>
+</html>
+
+<!-- the commented out parts are actually what react does -->
+
+<!-- Concept:
+const a=arr[0]
+const b=arr[1]
+
+this thing can be written as
+const [a,b]=arr; -->
+
