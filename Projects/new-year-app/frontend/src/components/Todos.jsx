@@ -13,7 +13,7 @@ export function Todos({todos}){   //you can also do Todos(props)
             return <div>
                 <h1>{tod.title}</h1>
                 <h1>{tod.description}</h1>
-                <button>{tod.completed==true?"completed":"mark as completek"}</button>
+                <button>{tod.completed==true?"completed":"mark as completed"}</button>
             </div>
         })}
     </div>

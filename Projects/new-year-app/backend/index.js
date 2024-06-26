@@ -2,9 +2,13 @@ const {todo}=require("./db")
 const express=require("express");
 const { createTodo,updateTodo } = require("./types");  
 const app=express();
+const cors=require("cors");
 
 app.use(express.json());
-
+app.use(cors())   //anybody can hit the backend
+// app.use(cors({
+//     origin:"http://localhost:5174"
+// }));  //this is used for communication between frontend and backend otherwise there will be cors error
 //i am expecting body {title:String,description:String}
 app.post("/todos",async function(req,res){
     const createPayload=req.body;
