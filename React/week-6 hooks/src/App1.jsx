@@ -10,6 +10,7 @@ function App() {
     <>                           
      {/* it is okay even if i dont put div above as it just needs some parent*/}
      {/* thus it avoids an extra dom element */}
+     {/* You can also put React.Fragment there by importing React from react*/}
       <Header title="harikrat1"/>
       <Header title="harikrat2"/>
     </>
