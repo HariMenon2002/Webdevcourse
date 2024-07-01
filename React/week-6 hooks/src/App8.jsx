@@ -1,8 +1,5 @@
 //useMemo
-/* If i ask you to create an app that does two things
-1.Increase a counter by 1
-2.Lets user put a value in an input box (n) and you need to show sum from 1-n
-3.Everything has to be inside app()
+/* Hook for building user interfaces. It is used to memoize functions especially in cases involving child components that rely on reference equality to prevent unnecessary renders
 */
 
 
