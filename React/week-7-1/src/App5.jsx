@@ -1,8 +1,6 @@
 
 //Context API part 2
 
-
-
 //suppose i am putting both  count and setCount in the context
 
 import { useContext, useState } from "react";
