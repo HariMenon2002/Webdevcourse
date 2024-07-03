@@ -47,3 +47,7 @@ function Buttons(){
 }
 
 export default App
+
+/*
+Context api is used to make syntax cleaner and get rid of prop drilling. It does not reduce the number of times the child components rerender.For eg here Count fn will rerender even if count is not used here
+ */
