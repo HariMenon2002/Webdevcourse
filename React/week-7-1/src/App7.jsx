@@ -6,9 +6,6 @@ import { countAtom, evenSelector } from "./store/atoms/count";
 import { useMemo } from "react";
 
 function App(){
-  
- 
-
   return <div>
     <RecoilRoot>
       <Count />
@@ -17,7 +14,6 @@ function App(){
 }
 
 function Count(){
-  
   return <div>
     <CountRenderer/>
     <Buttons />
@@ -25,26 +21,21 @@ function Count(){
 }
 
 function CountRenderer(){
-  
   const count=useRecoilValue(countAtom);
-
   return <div>
     {count}
   </div>
 }
 
 function Buttons(){
-  
   const setCount=useSetRecoilState(countAtom);
   console.log('re-render button')
   return <div>
-    <button onClick={()=>{
-     
+    <button onClick={()=>{    
       setCount(count=>count+1) 
     }}>Increase</button>
 
-    <button onClick={()=>{
-      
+    <button onClick={()=>{     
       setCount(cnt=>cnt-1)  
     }}>Decrease</button>
 
@@ -53,8 +44,7 @@ function Buttons(){
 }
 
 function Check(){
-  const isEven=useRecoilValue(evenSelector);
-  
+  const isEven=useRecoilValue(evenSelector);  
   return <div>
     {isEven?"It is even":"It is odd"}
   </div>
