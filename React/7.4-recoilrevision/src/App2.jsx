@@ -1,6 +1,8 @@
 //Asynchronous data queries
 
-//The right way
+//I am now trying to build a real linkedin bar by hitting the backend
+//https://sum-server.100xdevs.com/notifications
+//The above site gives {"network":5,"jobs":9,"messaging":2,"notifications":6} format
 
 import './App.css'
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
@@ -41,3 +43,12 @@ function MainApp() {
 }
 
 export default App
+
+/*
+But this is not the actual way to do asynchronous queries. If you notice you will see that everytime you refresh the website it will show the default values first and then only it shows the real values.
+
+axios.get() should actually reside in the default of notifications instead of here,but you cant directly do that
+
+The default value for an atom needs to be synchronous or it can be a selector which can be asynchronous. So we will use high level selectors to incorporate asynchronous data into the recoil data flow
+*/
+
