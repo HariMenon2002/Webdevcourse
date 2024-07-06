@@ -1,4 +1,4 @@
-//todo app
+//todo app using atom family
 import './App.css'
 import { RecoilRoot, atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { todosAtomFamily } from './atoms';
