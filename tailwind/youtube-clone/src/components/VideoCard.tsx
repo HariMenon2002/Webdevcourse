@@ -1,6 +1,6 @@
 
 export function VideoCard(props: any){
-    return <div>
+    return <div className="p-3 cursor-pointer">  {/*p is for padding */}
        <img src={props.image} className="rounded-xl"></img>  {/*this is for thumbnail, rounded is to round the border */}
 
        {/* the below code is for image of channel and video title*/}
@@ -26,3 +26,6 @@ export function VideoCard(props: any){
        </div>
     </div>
 }
+
+
+//https://github.com/100xDevs-hkirat/week-12.2/tree/main 
