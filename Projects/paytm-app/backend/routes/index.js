@@ -7,6 +7,7 @@ const express=require("express")
 const router=express.Router() 
 
 const userRouter=require("./user")
+const accountRouter = require("./account");
 
 //for eg you can do
 // router.get("/",(req,res,next)=>{ 
@@ -14,5 +15,6 @@ const userRouter=require("./user")
 // }) 
 
 router.use("/user",userRouter)
+router.use("/account", accountRouter);
 
 module.exports=router

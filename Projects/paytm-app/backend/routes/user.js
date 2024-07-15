@@ -39,6 +39,14 @@ router.post("/signup",authMiddleware,async (req,res)=>{
     }
 
     const dbUser=await User.create(body);
+
+    const userId = dbUser._id;
+    await Account.create({
+        userId,
+        balance: 1 + Math.random() * 10000   // i am randomly assigning an account balance for the user
+    })
+
+
     const token=jwt.sign({
         userId:dbUser._id
     },JWT_SECRET)
