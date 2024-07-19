@@ -1,0 +1,31 @@
+Some important concepts
+function App(){
+  const [render,setRender]=useState(true);
+
+  useEffect(()=>{
+    setTImeout(()=>{
+      setRender(false);
+    },1000)
+  },[]);
+
+  return (
+    <>
+      {render? <MyComponent/>:<div></div>}
+    </>
+  )
+}
+function MyComponent(){
+  useEffect(()=>{
+    console.log("component mounted")
+
+    return ()=>{
+      console.log("component unmounted")
+    }
+  },[])
+
+  return <div>frr</div>
+}
+
+useEffect can only return a function if needed and this function in above case runs only when the component is removed(suppose i am using a setTimeout)
+But if [] is not empty eg if it is [todos] , the return function will everytime the todos changes after the second time todos changes
+ie the first time todos changes, only component mounted will be printed
