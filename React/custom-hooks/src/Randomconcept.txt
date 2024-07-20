@@ -3,7 +3,7 @@ function App(){
   const [render,setRender]=useState(true);
 
   useEffect(()=>{
-    setTImeout(()=>{
+    setTimeout(()=>{
       setRender(false);
     },1000)
   },[]);
