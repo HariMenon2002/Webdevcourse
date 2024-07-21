@@ -37,3 +37,9 @@ const greet1 = (name: string) => `Hello, ${name}!`;
 const doSomething:(a:any)=>void=(a)=>{
     console.log("hello")
 }   
+
+function ran(cb1:()=>void,cb2:(number:string)=>number):string{
+    cb1();
+    const x=cb2("wow");
+    return "1";
+}

@@ -35,3 +35,5 @@ interface Man extends User{
 interface Man1 extends User{
     name:string;
 }
+
+

@@ -54,3 +54,15 @@ type Employee1 = {
     name:"hari",
     department:"ece"
   }
+
+
+//you can also do something like
+interface Manager3{
+    name:string;
+}
+
+type techLead={
+    time:Date;
+}
+
+type Both=Manager3 & techLead;
