@@ -35,6 +35,6 @@ model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique
   name    String?
-  posts   Post[]
+  posts   Post[]               //this is actually not displayed in database
   profile Profile?
 }

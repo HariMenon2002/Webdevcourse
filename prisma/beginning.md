@@ -1,5 +1,6 @@
 First my task was to download postgres locally and download pgadmin- watch a youtube video
 
+You can also download the prisma extension
 Then I had to go through the installation section in prisma docs
 After setting up everything , in the .env file modify the database url to what your database url is
 
@@ -47,3 +48,8 @@ psql -h localhost -p 5432 -U postgres -d db  and then do \dt;   //this gives the
 
 Create a src folder and in tsconfig.json uncomment rootDir and put "./src" 
 Create a dist folder and in tsconfig.json uncomment outDir and put "./dist" 
+
+Do tsc -b and run the js file (eg.create-user.js)  //now data has entered
+Then do npx prisma studio which opens a website
+
+Each time i make changes in create-post.ts and run it and do npx prisma studio, each post will be created
