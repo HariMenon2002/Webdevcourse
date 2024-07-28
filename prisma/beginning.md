@@ -53,3 +53,6 @@ Do tsc -b and run the js file (eg.create-user.js)  //now data has entered
 Then do npx prisma studio which opens a website
 
 Each time i make changes in create-post.ts and run it and do npx prisma studio, each post will be created
+
+
+Refer https://github.com/100xDevs-hkirat/week-13-prisma/tree/master/src
