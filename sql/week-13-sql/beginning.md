@@ -1,5 +1,6 @@
 You can directly clone repository from https://github.com/100xDevs-hkirat/week-13-sql
                          Or
+Do npm init -y and npx tsc --init and then 
 you can do npm install pg and npm install @types/pg
 pg is like mongoose for postgress.Helps you connect to postgress via nodejs
 
