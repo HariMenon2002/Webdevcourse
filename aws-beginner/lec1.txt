@@ -1,0 +1,20 @@
+Now our next step is to connect to the server.
+Copy that .pem file(filename.pem)(which you got from aws) into the folder where you have all your projects in your local system. cd to that Project location in the command terminal(cd Documents/Webdevcourse-master). You can also use any other folder. The below command is to connect to the server
+
+ssh -i filename.pem ubuntu@ip_of_your_instance 
+
+But this might give Permissions for filename.pem are too open error , so you should do the below command
+chmod 700 filename.pem then rerun the above command.
+
+You can also exit it using exit command.
+
+After connecting with server,
+You can do git clone (any repo) eg. git clone https://github.com/hkirat/sum-server
+
+You can get error(not necessarily) while doing this because by default ec2 instances dont have access to internet ie my aws server is not able to hit a dns server.This can be solved(solution given by google) when i edit a particular file in the server called resolv.conf. For that i will do ,
+
+vi /etc/resolv.conf
+press i and then press enter
+After nameserver 127.0.0.53 and before options , paste nameserver 8.8.8.8
+Then press on esc and then :wq and then enter
+
