@@ -1,0 +1,53 @@
+Creating a reverse proxy 
+
+After connecting domain to nginx, now we have to create a reverse proxy. For that we need to create nginx config files.Do the following commands
+
+sudo rm /etc/nginx/nginx.conf            ie deleting original default config file
+sudo vi /etc/nginx/nginx.conf
+
+now in this paste
+
+events {
+    # Event directives...
+}
+
+http {
+	server {
+    listen 80;
+    server_name a.com;                  
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+	}
+	server {
+    listen 80;
+    server_name b.com;                  
+
+    location / {
+        proxy_pass http://localhost:8081;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+	}
+}
+
+
+Then do sudo nginx -s reload      to restart nginx
+
+Now do cd sum-server/ and then do node index.js to run it
+Then go to a.com/todos 
+
+
+Side note:
+suppose in my local machine i want google.com to point to another ip. First come back to your normal local terminal(not aws) and do sudo vi /etc/hosts
+
+Then in that add 209.22.21.34  google.com

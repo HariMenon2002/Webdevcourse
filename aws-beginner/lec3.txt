@@ -1,5 +1,6 @@
 Reverse proxy
 
+First do cd ..(ie come out of sum-server)
 Suppose there are two programs running on diff ports in the server(eg port 8080 and 8081) by the same instance. So what I would ideally want is that two requests should point to the same server ie eg a.com should point to process at port 8080 and b.com should point to process at port 8081
 
 Thus I can use a reverse proxy(a program) which will run at port 80 which decides that if incoming url(request) is a.com then it will send to process at 8080 and if it is b.com , it will send to process at 8081(ie. based on domain name)
