@@ -9,12 +9,13 @@ chmod 700 filename.pem then rerun the above command.
 You can also exit it using exit command.
 
 After connecting with server,
-You can do git clone (any repo) eg. git clone https://github.com/hkirat/sum-server
+You can do git clone (any repo) eg. git clone https://github.com/hkirat/sum-server.Now when you do ls, you will see a sum-server folder.
 
 You can get error(not necessarily) while doing this because by default ec2 instances dont have access to internet ie my aws server is not able to hit a dns server.This can be solved(solution given by google) when i edit a particular file in the server called resolv.conf. For that i will do ,
 
-vi /etc/resolv.conf
+sudo vi /etc/resolv.conf
+navigate the cursor to the point where you want to enter the command
 press i and then press enter
-After nameserver 127.0.0.53 and before options , paste nameserver 8.8.8.8
+After nameserver 127.0.0.53 and before options(therefore cursor should be pointed at o of options initially before pressing i and then enter to shift it down) , paste nameserver 8.8.8.8(this solution was found in google)
 Then press on esc and then :wq and then enter
-
+:q! can be used to exit it incase needed 

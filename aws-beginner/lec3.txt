@@ -1,0 +1,22 @@
+Reverse proxy
+
+Suppose there are two programs running on diff ports in the server(eg port 8080 and 8081) by the same instance. So what I would ideally want is that two requests should point to the same server ie eg a.com should point to process at port 8080 and b.com should point to process at port 8081
+
+Thus I can use a reverse proxy(a program) which will run at port 80 which decides that if incoming url(request) is a.com then it will send to process at 8080 and if it is b.com , it will send to process at 8081(ie. based on domain name)
+
+Nginx is an open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, Nginx can also function as a proxy server for email(SMTP,IMAP,POP3) and a reverse proxy and load balancer for HTTP,TCP and UDP servers.
+
+Do sudo apt update and sudo apt install nginx
+Now try visiting your website(ie yourawsinstancedomainname.com or ip). You will see that nginx is able to take over port 80
+
+You can actually try out nginx when you buy a domain name and point to this instance
+
+Suppose i want to connect a.com and b.com to my ec2 machine.Then follow these steps:
+
+1.Copy the ec2 instance ip
+2.Go to your domain provider(eg godaddy) and go to dns section.
+3.Add one record as a and put ip of ec2 instance in the corresponding ip section(thus a.com will point to this ap)
+4.Add one more record as b and put ip of the same instance in b's corresponding ip section and save it
+
+
+
