@@ -1,0 +1,16 @@
+Deploying frontends in aws
+
+All the mp4 files, images , html files that we get while visiting a site is called content or object. They are not stored in a conventional database unlike textual data. For eg in youtube the thumbnail , channel info etc can be stored in a database but the actual mp4 video file will be stored in another place and that place is called object stores. Every cloud provider has an object store.
+
+AWS has the most famous object store called S3(simple storage service). It is like a dashboard where you can upload your content and it gives back a link(for each content) which can be used. This link you can share it. But the twist is you should not share this directly.We use it along with CDN.
+
+When you go to S3 section , you can create each bucket for your each application eg a bucket for youtube. Adding a file is as easy as a drag and drop and clicking on the upload button. You can have different folders in the bucket as well. If you click on the uploaded file, you will also see the link, but as mentioned before it should not be shared directly.
+
+Here two main factors are involved- storage and distribution. For storage we use object stores, for distribution we use CDNs(Content Delivery Networks). When you create a CDN, you tell the CDN the source, which is the above mention link(object url). A different CDN url is thus generated which points to the object url 
+
+CloudFront is the CDN of AWS. When a person tries to access a CDN url ,it access the file from the source(object) url and will also cache it.
+
+CDN has multiple servers(pops ie point of presence) all around the world and whenever I from India go to the CDN url, my request goes to my closest server which asks the source to give it the file and caches it(for a certain time). Therefore anyone from India can now get it from the server near me.
+
+Why dont we distribute backends via CDNs(ie. why no caching)?
+  You cant actually cache it because it could be very personal eg. your details, suppose you do site.com/me , it should give you your details which will be diff for everybody
