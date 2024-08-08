@@ -1,0 +1,12 @@
+Steps of deploying a frontend in AWS
+
+Note :This will not work for frameworks that use server side rendering(eg Nextjs).This will work for basic react apps, Html/css/js apps
+
+1.In my local terminal,First create a project using npm create vite@latest and select typescript. Then cd to that project and do npm install 
+2.Another thing to note is that you cant deploy .tsx files and all that, you will need to convert it to basic html/css/js which the browser understands
+        So do npm run build    , this will create a dist folder which is imp which we will distribute over the internet.It has index.html, an assets folder having js and css file etc
+
+3.You cant directly display the html file in the browser. Do npm install -g serve   and then cd to dist folder and run the command   serve
+What this does is, it will serve all the files in the dist folder on a port(say http://localhost:3000/index.html).All this is to just show locally. So i am able to serve my files on a port. 
+
+4.These files are actually what I want to upload to S3
