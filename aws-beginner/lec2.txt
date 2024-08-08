@@ -7,3 +7,5 @@ So in instances, click on your instance(tick) and select security.Click on the g
 Now in browser do ip_of_your_instance:8080/todos. You can also use the domain name of instance given by aws:8080/todos. Thus you are able to deploy a simple nodejs app. 
 
 It is very ugly to put :8080 everytime, but you cant put app.listen(80) (80 is the default port)for every program as  diff programs which are run by the same aws machine cant have same port.
+
+Note: instead of node index.js you can do pm2 start index.js which will run index.js even if you close the terminal.

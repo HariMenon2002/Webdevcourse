@@ -1,0 +1,5 @@
+Certification management
+
+To make sure connection is secure(ie https instead of http).You just cant directly put listen 443; in the server section in sudo vi /etc/nginx/nginx.conf .For this we need certificates and so go to https://certbot.eff.org/ .
+
+Go to the above site and select "my https website is running on nginx on ubuntu 20". Then it will give you all the steps. You can select which server in the previous code (eg server having a.com) should have https and it will automatically update /etc/nginx/nginx.conf .It will automatically remove listen 80; from server section of a.com and add its own listen
