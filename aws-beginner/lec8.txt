@@ -1,0 +1,11 @@
+Creating an object store in AWS steps   
+In AWS, go to S3 section and create a bucket(just give bucket name and keep rest default)(by default public access is blocked for this)
+
+Drag and drop all the files in the dist folder in this bucket(dont put it as a dist folder, put them seperately)
+
+Go to cloudfront and click on create distribution.The origin domain should be the domain link(...com) of the bucket
+In Origin access(how can cloudfront access your bucket) click on Origin access control settings.Click on create a new OAC and select sign requests in that and click on create. Enable security protections , put default root object as index.html(ie by default, cloudfront url should take us to index.html)at the bottom and rest all is default. Then click on create distribution.It will create a distribution and also a s3 policy which we should copy
+
+Now we have to update S3 bucket policy.Go to permissions page of our bucket and in bucket policy, click on edit bucket policy and paste the above copied policy.
+
+The newly created distribution will have a domain name(...net). Copy and paste in browser and check.

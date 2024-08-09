@@ -1,0 +1,19 @@
+Now we need to connect our domain name to the cloudfront domain
+
+In our created cloudfront, click on edit options in settings which has alternate domain names option. Click on Alternate domain name and give it your domain name(eg. week12fe.100xdevs.com)
+
+Now we have to request ssl certificate(for https) for our website. Select on request a public certificate and give our domain name and click on request and refresh the page. Go to the certificate id and in domains section, it will give you CNAME name and CNAME value. Copy those.(we need it for verification,aws needs to know whether you actually own the domain name, you should atleat own the 100xdevs.com part)
+
+Go to your domain provider(like google domains, go to dns section, click on manage records and in that create a new record with name as CNAME name , type as CNAME and value with given CNAME value) and save it.
+
+After some time, certificate will be issued. Go back to the cloudfront creation page and now in the ssl certificate space you can choose your certificate.Rest all are default.Now save it
+
+Now go back to domain provider, in dns section go to manage records and create a new record. Put week12fe and name, CNAME as type and  value as my cloudfront url and save it.
+
+Now try out your domain name in browser
+
+You can also add an error page using your cloudfront(incase user goes to wrong routes). Specify the error code and put path as /index.html so that all routes which are not found in s3 will reach index.html itself. You also have to create an invalidation(in the object path , put /*) to remove the cache
+NOTE:
+To own the domain week12fe.100xdevs.com, you would need to own the primary domain, which is 100xdevs.com.
+
+Once you own 100xdevs.com, you can create any subdomain under it, including week12fe.100xdevs.com. There's no need to purchase the subdomain separately; you only need to buy the primary domain. After acquiring 100xdevs.com, you'll have full control over the subdomains you create.    
