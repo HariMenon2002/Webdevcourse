@@ -34,9 +34,20 @@ function updateUser(updatedProps:UpdateProps){
 
 type UpdataProps=Pick<User,'name'|'age'|'email'>
 
-function updateUser(updatedProps:UpdataProps){
+//you can also have a partial
+type UpdatePropsOptional=Partial<UpdataProps>   //now all those parameters are optional,works like ?
+
+function updateUser(updatedProps:UpdataProps){  //you can also give UpdatePropsOptional here as well
+    
     //hit database to find user
 }
+
+updateUser({
+    name:"asd",
+    age:123,
+    email:"res@gmail.com"
+
+})
 
 
 
