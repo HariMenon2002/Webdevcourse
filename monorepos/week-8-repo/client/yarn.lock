@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@100xdevs/common@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@100xdevs/common/-/common-1.0.1.tgz"
-  integrity sha512-BS0wVJXmy9C8Ibf8aMBnomf4Q6yonPbkyiJwmFyW+vwQxD//hEtT3tqvTgLrxIe0aLynV1aWPwrQ1VRcfuUZRA==
+"@100xdevs/common@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@100xdevs/common/-/common-1.0.2.tgz"
+  integrity sha512-vp3NRIJr+p6twhYlsW492Z3XyOabgK4KbgxlU76GoDMbtwVenjcKYk3x5l+5OC1j1anbmfNC32awDzPD1cnSDQ==
   dependencies:
     zod "^3.21.4"
 

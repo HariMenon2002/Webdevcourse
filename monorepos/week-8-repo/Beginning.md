@@ -27,3 +27,11 @@ Now do cd client  and then npm install @your_npm_acccount_username/common (right
 Another thing to note is that you need a declaration file in common ie index.d.ts. This is needed because when we import this file (index.js) in client and server typescript cant identify the type as we have not published the ts files. It will have just the types(or interfaces) and not the actual js runtime code. To create this .d.ts file , go to tsconfig.json file in common and put declaration as true. Then do tsc -b(in cd common) and then you will see index.d.ts has been created in dist folder. Now publish it again(dont forget to change version) 
 
 Then in package.json of client and server , change the version number of the package do rm -r node_modules(to remove the existing modules) and do npm install again   
+
+So this is how things used to happen before monorepos
+
+                    Understanding monorepos
+For this we will use turbo
+Turborepo (often referred to simply as Turbo) is a high-performance build system specifically designed for managing monorepos. It provides tooling and features that help developers efficiently build, test, and deploy large-scale projects with many interdependent packages or applications. Turborepo optimizes workflows in a monorepo environment, making it easier to manage complex codebases and reduce build times.
+
+Run npx create-turbo@latest and give your project name
