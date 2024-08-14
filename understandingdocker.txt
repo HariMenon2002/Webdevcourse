@@ -1,0 +1,41 @@
+Docker GUI is the easiest way to get off the ground. 
+You can find instructions to install docker on https://docs.docker.com/engine/install/
+At the end of the installation, you need to make sure you’re able to run the following command - 
+                    docker run hello-world
+
+ systemctl --user start docker-desktop              to start docker ui
+ systemctl --user stop docker-desktop               to stop docker ui
+
+Docker let’s you do a lot of things.
+It let’s you containerise your applications.
+It let’s you run other people’s code + packages in your machine.
+It let’s you run common software packages inside a container  (For eg - Mongo, Postgres etc). Thus you dont have to take pains to install mongo, navigating ui etc.
+Think of container as a seperate virtual machine which has its own ports etc. So if i run a container running an app on port 3000 and if i am trying to access port 3000 of my local website(laptop), it should route to port 3000 of my container as port 3000 of my laptop is notthe one running the application.If it doesnt route, it will not show anything.
+
+Just like you can push your code to Github/Gitlab, You can push images to docker registries(eg AWS registry,Google registry, Dockerhub etc.). Dockerhub is most popular
+
+Images(eg search for mongodb docker image) contain the code, file repositories, eg. When we bring the images and run them, then the container starts
+
+Common commands to know:
+1.docker run- In the terminal, do docker run mongo. Thus mongo will run on default port 27017. But if i open mongodb compass and put url mongodb://localhost:27017, it will not connect because of reason on line 10
+So we should do something called port mapping ie when i try to get port 27017 of laptop it should route to 27017 of container
+
+            docker run -p 27017:27017 mongo     ie any request coming on to 27017 should go to container's 27017
+You can also do docker run -p 27015:27017 mongo and in mongodb compass you should put mongodb://localhost:27015 as now request to 27015 must go to 27017 of container
+
+You can also do docker run -d -p 27017:27017 mongo to run it in detached mode ie now the log files will not be shown as it is running in the background
+
+            docker ps      command shows all the current running containers
+
+            docker kill container_id       kills the container with container_id    
+
+For Postgres
+
+docker run -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres        //-e is for env variable 
+
+The connection string for this postgres would be 
+postgresql://postgres:mysecretpassword@localhost:5432/postgres             //by default username and database name is postgres
+
+You can also do 
+
+docker run -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=mysecretusername -d -p 5432:5432 postgres  
