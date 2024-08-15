@@ -39,3 +39,11 @@ postgresql://postgres:mysecretpassword@localhost:5432/postgres             //by 
 You can also do 
 
 docker run -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=mysecretusername -d -p 5432:5432 postgres  
+
+By default POSTGRES_USER will be postgres and database name will default be same as POSTGRES_USER
+
+you can ssh into your container using
+    docker exec -it <container_id>  /bin/bash            //you can exit using exit command
+Then you can use psql commands
+psql -h localhost -d postgres -U postgres      //suppose my username and database name is postgres
+Now you can write queries
