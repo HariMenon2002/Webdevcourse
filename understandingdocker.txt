@@ -47,3 +47,6 @@ you can ssh into your container using
 Then you can use psql commands
 psql -h localhost -d postgres -U postgres      //suppose my username and database name is postgres
 Now you can write queries
+
+
+Instead of psql, in nodejs you can use pg with the same connection string
