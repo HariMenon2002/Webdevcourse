@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-async function main() {
+async function main() {                    //you can give any function name and also give it parameters
   // ... you will write your Prisma Client queries here
   //prisma client already knows your schema
   await prisma.user.create({
@@ -12,6 +12,8 @@ async function main() {
 
     }
   })
+
+  //you can also try to do const response=await prisma ..... and do console.log(response)
 }
 
 // main()

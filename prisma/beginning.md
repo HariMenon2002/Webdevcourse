@@ -36,12 +36,13 @@ model User {
 
 This is a schema which prisma will later convert to an sql schema
 
-npx prisma migrate dev --name init    should be run each time you make changes in schema.
+npx prisma migrate dev --name init    should be run each time you make changes in schema. You can also give any other name other than init as well
 For eg. if you have added todos, you can do 
 npx prisma migrate dev --name added todos
 
 So basically this creates a migrations folder 
 
+Each time you change schema, you must also do npx prisma generate
 
 psql -h localhost -p 5432 -U postgres -d db  and then do \dt;   //this gives the relations in my database                   // exit by giving exit command
 
