@@ -14,9 +14,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return (             //layout for every page
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="p-4 border-b">
+          Medium Website
+        </div>
+        
+        {children}
+        </body>
     </html>
   );
 }
+
+//if i put hi there above {children},hi there will be visible on every route
+//similarly the above divbar will be there for every page 
+
