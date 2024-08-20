@@ -23,3 +23,7 @@ Maintained by the Vercel team
 Downsides - 
 Can’t be distributed via a CDN, always needs a server running that does server side rendering and hence is expensive
 Very opinionated, very hard to move out of it
+
+Nextjs in Backend
+In nextjs, the same process can handle frontend and backend unlike react.
+It maintains single codebase, no cors issue, single domain name and easy to deploy.
