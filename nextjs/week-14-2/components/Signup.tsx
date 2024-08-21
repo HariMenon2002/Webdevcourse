@@ -28,7 +28,7 @@ export function Signup() {
                         }} label="Password" type={"password"} placeholder="123456" />
 
                         <button onClick={async () => {
-                            const response = await axios.post("http://localhost:3000/api/user", {
+                            const response = await axios.post("http://localhost:3000/api/user", {      //i can also use a server action here ie call signup function present in actions/user.ts
                                 username,
                                 password
                             });
