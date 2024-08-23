@@ -29,3 +29,29 @@ It is similar to github, but it lets you push images rather than sourcecode
 Docker’s main registry - https://dockerhub.com/
 Mongo image on docker registry - https://hub.docker.com/_/mongo
 
+Docker Image
+A Docker image is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
+Docker Container
+A container is a running instance of an image. It encapsulates the application or service and its dependencies, running in an isolated environment.
+
+Port mapping- eg.docker run -d -p 27018:27017 mongo
+
+Common docker commands-
+1.docker images- shows all the images you have on your machine
+2.docker ps-shows all the containers you are running on your machine
+3.docker run- lets you start a container
+4.docker build- lets you build an image
+5.docker push- lets you push your image to a registry
+6.docker kill and docker exec
+
+In order to delete an image eg. mongo, do docker rmi mongo --force
+
+What is a Dockerfile
+If you want to create an image from your own code, that you can push to dockerhub, you need to create a Dockerfile for your application.
+A Dockerfile is a text document that contains all the commands a user could call on the command line to create an image.
+How to write a dockerfile
+A dockerfile has 2 parts
+Base image
+Bunch of commands that you run on the base image (to install dependencies like Node.js)
+Let’s write our own Dockerfile
+Let’s try to containerise this backend app - https://github.com/100xdevs-cohort-2/week-15-live-1
