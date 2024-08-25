@@ -18,7 +18,7 @@ CMD command runs when you start the container, rest commands runs when you creat
 
 To create the image, do 
      docker build -t backend-app .
--t is used to name the image(here backend-app). . means you are building the image here 
+-t is used to name the image(here backend-app). . means you are building the image here. Each time you make changes, you should run this 
 
 now just do docker run -p 3000:3000 backend-app and go to browser and do localhost:3000
 
@@ -29,3 +29,13 @@ docker run -p 3000:3000 -e DATABASE_URL=".." backend-app
 Some other commands:
 docker exec- to execute a command inside a container
 for eg docker exec -it container_id /bin/bash and now i can do ls and other commands. type exit and come out of it 
+
+
+NOTE:
+Base image creates the first layer. Each RUN, COPY, WORKDIR command creates a new layer. Layers can be used across docker builds(cached and used across images)
+
+If you change your dockerfile, layers can get re-used based on where changes was made. Thus our aim is to increase the number of cached layers(ie we want most layers to be cached)
+
+Suppose you make changes in this file, the first two lines of dockerfile will be same and can be cached but rest all layers will be different and so the cached one cant be used for these layers. eg.Suppose you change the package.json file, then layer 1 and layer 2 (1st two line of dockerfile) is same but layers afterwards will be changed. But if you think about it, we dont change dependencies in package.json ofter. So there is no need to recache run npm install layer again and again whenever any other change is made(as COPY . . is changed and needs to be recached, it will also mean RUN npm install layer will also be recached as it is below it)
+
+Thus we need to optimise our dockerfile
