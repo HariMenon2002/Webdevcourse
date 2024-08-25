@@ -69,3 +69,11 @@ Reusable & Shareable: Layers are cached and reusable across different images, wh
 Immutable: Once a layer is created, it cannot be changed. If a change is made, Docker creates a new layer that captures the difference. This immutability is key to Docker's reliability and performance, as unchanged layers can be shared across images and containers.
 
 If there is a change in a layer, the layers below it will also need to be recached.
+
+Networks and volumes:
+Networks and volumes are concepts that become important when you have multiple containers running in which you
+1.Need to persist data across docker restarts(usually what happens is eg. if you start a mongo container , when you kill that container and restart it, all data will also be lost. This is because docker containers are transitory ie they dont retain data across restarts. To solve this we use volumes)
+2.Need to allow containers to talk to each other. For this we use networks
+
+We didn’t need networks until now because when we started the mongo container, it was being accessed by a Node.js process running directly on the machine.
+
