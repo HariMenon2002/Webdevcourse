@@ -55,7 +55,7 @@ Now Mount the folder in mongo which actually stores the data to this volume
 docker run -v volume_database:/data/db -p 27017:27017 mongo
 /data/db is a folder inside the container where data of mongodb will be stored (for postgres this will be different). This is the folder which is mounted on volume
 
-Now add data in the database in compass after logging into http://localhost:27017
+Now add data in the database in compass after logging into mongodb://localhost:27017/
 
 Now kill the container using docker kill <container_id> and then restart the container using 
 docker run -v volume_database:/data/db -p 27017:27017 mongo

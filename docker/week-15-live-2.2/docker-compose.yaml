@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mongodb:
+    image: "mongo"
+    container_name: mongodb123
+    ports:
+      - 27017:27017
+    volumes:
+      - "mongodb_data:/data/db" 
+    backend:
+      image: "backend22"
+      container_name: backend_application
+      ports:
+        - 3000:3000
+      environment:
+        MONGO_URL: "mongodb://mongodb123:27017"  
+volumes:
+  mongodb_data:
+#this is actually equivalent to docker run --name mongodb -p 27017:27017 -v mongodb_data:/data/db mongo
+#backend22 is image of your application(ie when you do docker build -t backend22)
+#volumes is created as another section (so that docker needs to know that it has to create a volume) and used in mongo
+#all of these services will be connected by a network given by docker
+
+#to run this first install docker-compose up
+#docker-compose up
+
+#if you want backend to build from the docker file(ie if you want building docker image should also be done by docker-compose), remove image:"backend22" and inset 
+#       build: .        there

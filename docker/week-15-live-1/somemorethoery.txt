@@ -1,0 +1,22 @@
+To push your image to dockerhub, first go to dockerhub and login. Then click on create repository . The namespace will be your username and then it will be followed by the repository name. First we build an image of our project with same nae as repo created
+        docker build -t namespace/repo_name:v1-dev .
+Try running it using docker run namespace/repo_name:v1-dev 
+Note: v1-dev is the tag_name. If you dont give tag_name, by default it will be latest. Thus we will have diff versions of the image(check docker images). You can give any tag_name
+
+For eg if you do docker run mongo:4.4.29, it will pull 4.4.29 version of mongo
+
+Then do 
+  	docker login   and enter your usename and password. 
+If you are signing up via google, go to the security section in your account and create a new access token and then we can use it as password.
+
+Now do
+	docker push namespace/repo_name:v1-dev	
+
+If another person wants to pull this repo, they should do docker run -p 3000:3000  namespace/repo_name:v1-dev
+If you dont give v1-dev , it will automatically search for latest version
+
+Docker Compose:
+Docker Compose is a tool designed to help you define and run multi-container Docker applications. With Compose, you use a YAML file to configure your application's services, networks, and volumes. Then, with a single command, you can create and start all the services from your configuration.(eg now if i have to communicate between two containers and create a volume and for port mapping etc i have to have seperate commands. what if i could do all this in single command).
+
+In docker-compose.yaml, services are your containers
+depends_on section indicated that that service will begin only if the service mentioned in depends_on section begins. To know more about docker-compose.yaml, go to week2.2 folder

@@ -44,6 +44,12 @@ Common docker commands-
 5.docker push- lets you push your image to a registry
 6.docker kill and docker exec
 
+Examples:
+1. List all contents of a container folder
+   docker exec container_id ls /path/to/directory
+2. Running an interactive shell
+   docker exec -it container_id /bin/bash
+
 In order to delete an image eg. mongo, do docker rmi mongo --force
 
 What is a Dockerfile
@@ -77,3 +83,4 @@ Networks and volumes are concepts that become important when you have multiple c
 
 We didn’t need networks until now because when we started the mongo container, it was being accessed by a Node.js process running directly on the machine.
 
+docker rmi mongo --force can be used to remove the image
