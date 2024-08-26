@@ -20,3 +20,11 @@ Docker Compose is a tool designed to help you define and run multi-container Doc
 
 In docker-compose.yaml, services are your containers
 depends_on section indicated that that service will begin only if the service mentioned in depends_on section begins. To know more about docker-compose.yaml, go to week2.2 folder
+
+Bind mounts:
+Suppose i want to connect a local file to docker. For eg. suppose you have created a nextjs application and made a container of it. Now if you run the container and you make changes in the nextjs folder it will not be shown in the container as it does not hot reload. For this we use bind mounts. We have to mount our local folder to a folder inside the container.
+Suppose /nextapp is the working directory defined in the container(in the docker file)
+
+I can do 	docker -p 3000:3000  -v ./app:/nextapp/app  nextapp
+
+This will bind mount ./app in our local machine directory and app directory in nextapp directory in the container
