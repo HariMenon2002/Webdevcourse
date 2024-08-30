@@ -12,3 +12,15 @@ cd week-16-2/apps, do npm create vite@latest, do npm install(in week-16-2/apps i
   "@repo/ui":"*",
 
 now if you do npm run dev, all the 3(web,docs and react-app will run . react-app runs on localhost:5173)
+
+
+Adding pure backend:
+Create and cd to backend folder in week-16-2/apps, do npm init -y, npx tsc --init
+
+Clear the content in tsconfig.json of backend folder(it is always better to extend instead of writing all of it again). Then add rootDir(create a src folder) and outDir in it. Module should be NodeNext
+
+Create an index.ts in backend and do(in cd backend) npm i express @types/express. Modify the scripts in backend/package.json and add build and dev scripts. Then do npm run dev
+
+Now we need a common folder(suppose it does zod validation) which backend can import . Create a new package (in week-16-2/packages) called common. cd to common and do npm init -y and npm i zod and npx tsc --init. Create src folder and modify  tsconfig.json in common folder. Go to package.json in common folder and rename it and add exports section. Add "@repo/common":"*" in dependencies section of package.json of backend folder and do npm install . Here you have to use esbuild to compile typescript files instead of tsc -b 
+
+NOTE: it is always better to do npm install by first cd ing to root folder
