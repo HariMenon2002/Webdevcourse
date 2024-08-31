@@ -1,0 +1,33 @@
+Authentication is the process of letting users signup/signin into websites via username / password or using SSO (single sign on). 
+
+Cookies:
+Cookies in web development are small pieces of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. They are designed to be a reliable mechanism for websites to remember things (very similar to local storage)
+1.Session Management: Cookies allow websites to identify users and track their individual session states across multiple pages or visits.
+2.Personalization: Websites use cookies to personalize content and ads. For instance, cookies might store information about a user's preferences, allowing the site to tailor content or advertisements to those interests.
+3.Tracking: Cookies can track users across websites, providing insights into browsing behavior. This information can be used for analytics purposes, to improve website functionality, or for advertising targeting.
+4.Security: Helps in authentication. We will be mainly focussing on this.
+
+Why not web token in  local storage instead of cookie?
+First of all nextjs cant use local storage as it uses server side rendering unlike react which uses client side rendering. So in the first request itself nextjs has to send the authorisation token but  it(ie the browser)  cant take from local storage. Nextjs  can take token for the subsequent requests(using eg axios). But in react ,it first fetches your basic html and js file then only we need to give backend request with token(using eg axios). Cookies meanwhile can be sent from first request itself
+
+Cookies will by default be sent  unlike tokens which have to be sent programatically(eg using axios). Ie. when you sign in server will send a cookie(set cookie header) to  your browser and once a cookie is set on a browser, it will send it in every request by default.  
+
+Properties of cookies
+Types of cookies
+Persistent - Stay even if u close the window
+Session - Go away after the window closes
+Secure - Sent only over secure, encrypted connections (HTTPS).
+
+Properties of cookies
+HttpOnly - Can not be accessed by client side scripts, they will just be transmitted
+SameSite - Ensures cookies are not send on cross origin requests
+Domains- You can specify what all domains should the cookie be sent from. eg same cookie for the same person can be set if he goes to app.100xdevs.com and project.100xdevs.com (provided both use same express server)
+
+CSRF attack(Cross site request forgery)
+Suppose you are a user and you have signed onto app.100xdevs.com and you have got a cookie. Now say  you are browsing some other website eg fraud.com made by a malicious person. This site can send a post request to app.100xdevs.com and update data there without you knowing as your cookie has been set in the browser. This is why you should restrict domains and use the samesite attribute(You might ask why do we need samesite when we can specify domains where cookie can be sent from, explanation will be given later)
+
+SameSite can be none,strict or lax. Never use none as it does not place any restriction.
+
+ Strict means request should be from same site eg 100xdevs.com, it can be any domain like app.100xdevs.com. Thus we can prevent csrf attacks but here there is a problem. Suppose a third party website which is actually genuine and showing ads of 100xdevs.com and has provided app.100xdevs.com link(this is called top level navigation). When I click on this link still the cookie will not be sent as the request is going from this site which is not allowed by strict mode. Thus this does not allow top level navigation.
+
+Lax allows top level navigation and GET requests. 
