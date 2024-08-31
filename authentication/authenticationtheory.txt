@@ -12,6 +12,7 @@ First of all nextjs cant use local storage as it uses server side rendering unli
 
 Cookies will by default be sent  unlike tokens which have to be sent programatically(eg using axios). Ie. when you sign in server will send a cookie(set cookie header) to  your browser and once a cookie is set on a browser, it will send it in every request by default.  
 
+NOTE: Even if we our using cookies, that does not mean that we dont need jwts. Jwt is anyway needed for authentication.
 Properties of cookies
 Types of cookies
 Persistent - Stay even if u close the window
