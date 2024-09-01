@@ -1,7 +1,7 @@
 //this file is supposed to create a schema and export it
 const mongoose=require("mongoose");
 
-mongoose.connect("mongodb+srv://b20ec33:l0NVOiTPTWAncRHw@cluster0.itjmjiy.mongodb.net/paytm")
+mongoose.connect(process.env.DATABASE_URL);
 
 const userSchema=mongoose.Schema({
     username:String,
