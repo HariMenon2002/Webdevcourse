@@ -1,0 +1,26 @@
+1.Where to start - Feature planning
+2.Design UI/UX
+UX - First principles/Copy the biggest website out there
+UI - Designer. Today there are tools but havent found any good one
+3.High level Design
+Auth provider
+Database
+Backend Stack
+Frontend stack
+Modules you’ll have (common/ui/backend)
+Cloud to deploy to
+4.LLD
+Schema
+Route signatures
+Frontend Components - debatable
+5.ER Diagrams - 
+We can build these today, but usually not needed unless you’re a very visual person
+6.How to think about features
+Usually come from product
+If you’re a founder, then just whatever u think is right
+7.How much complexity is needed
+Depends on the size of the company. For a startup, whatever helps you move fast w/o tech debt. For a company there are a lot of layers of review to go through
+
+You can add a merchant section as well for this, but for now we will focus only on user section
+You will need a frontend and backend for the app. You will also need a seperate backend to interact with the bank webhook
+Also  a queue(sweeper) for transactions back to bank from wallet.
